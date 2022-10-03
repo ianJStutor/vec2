@@ -24,7 +24,7 @@ class Vec2 {
     //special x,y manipulators
     flip() {
         //x becomes y, y becomes x
-        [this.#x, this.#y] = [this.#y, this#x];
+        [this.#x, this.#y] = [this.#y, this.#x];
         return this;
     }
     repair() {
