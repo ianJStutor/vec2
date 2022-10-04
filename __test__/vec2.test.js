@@ -123,7 +123,35 @@ describe("Math with a scalar methods", () => {
 });
 
 describe("Math with another Vec2 methods", () => {
-
+    const x1 = 0,
+          y1 = 3,
+          x2 = 4,
+          y2 = 0,
+          d = 5,
+          dot = 0,
+          cross = -12,
+          v1 = new Vec2(x1, y1),
+          v2 = new Vec2(x2, y2);
+    test("can find distance to another Vec2", () => {
+        expect(v1.dist(v2)).toBe(d);
+    });
+    test("can find distance squared to another Vec2", () => {
+        expect(v1.distSq(v2)).toBe(d * d);
+    });
+    test("can find dot product with another Vec2", () => {
+        expect(v1.dot(v2)).toBe(dot);
+    });
+    test("can find cross product with another Vec2", () => {
+        expect(v1.cross(v2)).toBe(cross);
+    });
+    test("can add another Vec2 to itself", () => {
+        expect(v1.add(v2).x).toBe(x1 + x2);
+        expect(v1.y).toBe(y1 + y2);
+    });
+    test("can subtract another Vec2 from itself", () => {
+        expect(v1.sub(v2).x).toBe(x1);
+        expect(v1.y).toBe(y1);
+    });
 });
 
 describe("Assignment from another Vec2 methods", () => {
@@ -144,7 +172,7 @@ describe("Assignment from another Vec2 methods", () => {
 
 describe("Comparison with another Vec2 methods", () => {
     const x = 3,
-          y = 6,
+          y = 0,
           a = 1.25,
           v = new Vec2(x, y),
           v1 = new Vec2(x, y),
@@ -155,12 +183,23 @@ describe("Comparison with another Vec2 methods", () => {
         expect(v.equals(v2)).toBe(false);
     });
     test("can return angle between two Vec2 objects", () => {
+        expect(v.angleBetween(v1)).toBe(0);
         expect(v.angleBetween(v2)).toBe(a);
     });
 });
 
 describe("Angle methods", () => {
-
+    const x = 3,
+          y = 0,
+          a = 1.25,
+          v = new Vec2(x, y);
+    test("can get and set angle", () => {
+        expect(v.angle()).toBe(0);
+        expect(v.angle(a).angle()).toBe(a);
+    });
+    test("can rotate by an angle", () => {
+        expect(v.angle(0).rotateBy(a).angle()).toBe(a);
+    });
 });
 
 describe("Magnitude methods", () => {
