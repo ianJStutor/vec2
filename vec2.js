@@ -244,6 +244,7 @@ class Vec2 {
 
 //aliases
 Vec2.prototype.dir = Vec2.prototype.angle;
+Vec2.prototype.direction = Vec2.prototype.angle;
 Vec2.prototype.heading = Vec2.prototype.angle;
 Vec2.prototype.rotateTo = Vec2.prototype.angle;
 Vec2.prototype.angleTo = Vec2.prototype.angleBetween;
