@@ -93,7 +93,33 @@ describe("Math methods", () => {
 });
 
 describe("Math with a scalar methods", () => {
-
+    const x = 3,
+          y = 6,
+          v = new Vec2(x, y);
+    test("can add to x,y individually", () => {
+        expect(v.addX(1).x).toBe(x + 1);
+        expect(v.addY(1).y).toBe(y + 1);
+    });
+    test("can subtract from x,y individually", () => {
+        expect(v.subX(1).x).toBe(x);
+        expect(v.subY(1).y).toBe(y);
+    });
+    test("can multiply both x,y", () => {
+        expect(v.mult(2).x).toBe(x * 2);
+        expect(v.y).toBe(y * 2);
+    });
+    test("can multiply x,y individually", () => {
+        expect(v.multX(2).x).toBe(x * 4);
+        expect(v.multY(2).y).toBe(y * 4);
+    });
+    test("can divide both x,y", () => {
+        expect(v.div(2).x).toBe(x * 2);
+        expect(v.y).toBe(y * 2);
+    });
+    test("can divide x,y individually", () => {
+        expect(v.divX(2).x).toBe(x);
+        expect(v.divY(2).y).toBe(y);
+    });
 });
 
 describe("Math with another Vec2 methods", () => {
@@ -101,11 +127,36 @@ describe("Math with another Vec2 methods", () => {
 });
 
 describe("Assignment from another Vec2 methods", () => {
-    
+    const x = 3,
+          y = 6,
+          v = new Vec2(),
+          v1 = new Vec2(x, y),
+          v2 = new Vec2(x * 2, y * 2);
+    test("can copy x,y values from another Vec2", () => {
+        expect(v.copy(v1).x).toBe(x);
+        expect(v.y).toBe(y);
+    });
+    test("can copy x,y values individually from another Vec2", () => {
+        expect(v.copyX(v2).x).toBe(x * 2);
+        expect(v.copyY(v2).y).toBe(y * 2);
+    });
 });
 
 describe("Comparison with another Vec2 methods", () => {
-
+    const x = 3,
+          y = 6,
+          a = 1.25,
+          v = new Vec2(x, y),
+          v1 = new Vec2(x, y),
+          v2 = new Vec2(x, y);
+    v2.rotateBy(a);
+    test("can determine equivalency between Vec2 objects", () => {
+        expect(v.equals(v1)).toBe(true);
+        expect(v.equals(v2)).toBe(false);
+    });
+    test("can return angle between two Vec2 objects", () => {
+        expect(v.angleBetween(v2)).toBe(a);
+    });
 });
 
 describe("Angle methods", () => {

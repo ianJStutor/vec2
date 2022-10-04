@@ -246,6 +246,8 @@ class Vec2 {
 Vec2.prototype.dir = Vec2.prototype.angle;
 Vec2.prototype.heading = Vec2.prototype.angle;
 Vec2.prototype.rotateTo = Vec2.prototype.angle;
+Vec2.prototype.angleTo = Vec2.prototype.angleBetween;
+Vec2.prototype.angleFrom = Vec2.prototype.angleBetween;
 Vec2.prototype.length = Vec2.prototype.mag;
 Vec2.prototype.len = Vec2.prototype.mag;
 Vec2.prototype.magnitude = Vec2.prototype.mag;
