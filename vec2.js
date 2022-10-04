@@ -219,11 +219,11 @@ class Vec2 {
     clone() {
         return new Vec2(this.#x, this.#y);
     }
-    toObj() {
-        return {x: this.#x, y: this.#y};
-    }
     toArr() {
         return [this.#x, this.#y];
+    }
+    toObj() {
+        return {x: this.#x, y: this.#y};
     }
     toStr() {
         return `${this.#x},${this.#y}`;
@@ -243,12 +243,59 @@ class Vec2 {
 }
 
 //aliases
+Vec2.prototype.fromArray = Vec2.prototype.fromArr;
+Vec2.prototype.fromObject = Vec2.prototype.fromObj;
+Vec2.prototype.fromString = Vec2.prototype.fromStr;
+Vec2.prototype.reverse = Vec2.prototype.flip;
+Vec2.prototype.rev = Vec2.prototype.flip;
+Vec2.prototype.flipXY = Vec2.prototype.flip;
+Vec2.prototype.fix = Vec2.prototype.repair;
+Vec2.prototype.negate = Vec2.prototype.neg;
+Vec2.prototype.invert = Vec2.prototype.neg;
+Vec2.prototype.inverse = Vec2.prototype.neg;
+Vec2.prototype.negateX = Vec2.prototype.negX;
+Vec2.prototype.invertX = Vec2.prototype.negX;
+Vec2.prototype.inverseX = Vec2.prototype.negX;
+Vec2.prototype.negateY = Vec2.prototype.negY;
+Vec2.prototype.invertY = Vec2.prototype.negY;
+Vec2.prototype.inverseY = Vec2.prototype.negY;
+Vec2.prototype.subtractX = Vec2.prototype.subX;
+Vec2.prototype.subtractY = Vec2.prototype.subY;
+Vec2.prototype.mul = Vec2.prototype.mult;
+Vec2.prototype.multiply = Vec2.prototype.mult;
+Vec2.prototype.scale = Vec2.prototype.mult;
+Vec2.prototype.mulX = Vec2.prototype.multX;
+Vec2.prototype.multiplyX = Vec2.prototype.multX;
+Vec2.prototype.scaleX = Vec2.prototype.multX;
+Vec2.prototype.mulY = Vec2.prototype.multY;
+Vec2.prototype.multiplyY = Vec2.prototype.multY;
+Vec2.prototype.scaleY = Vec2.prototype.multY;
+Vec2.prototype.divide = Vec2.prototype.div;
+Vec2.prototype.divideX = Vec2.prototype.divX;
+Vec2.prototype.divideY = Vec2.prototype.divY;
+Vec2.prototype.subtract = Vec2.prototype.sub;
+Vec2.prototype.dotProduct = Vec2.prototype.dot;
+Vec2.prototype.crossProduct = Vec2.prototype.cross;
+Vec2.prototype.distance = Vec2.prototype.dist;
+Vec2.prototype.distanceTo = Vec2.prototype.dist;
+Vec2.prototype.distanceFrom = Vec2.prototype.dist;
+Vec2.prototype.distanceBetween = Vec2.prototype.dist;
+Vec2.prototype.distanceSq = Vec2.prototype.distSq;
+Vec2.prototype.distanceSquared = Vec2.prototype.distSq;
+Vec2.prototype.squareDistance = Vec2.prototype.distSq;
+Vec2.prototype.sqDistance = Vec2.prototype.distSq;
+Vec2.prototype.sqDist = Vec2.prototype.distSq;
+Vec2.prototype.copyFrom = Vec2.prototype.copy;
+Vec2.prototype.copyXFrom = Vec2.prototype.copyX;
+Vec2.prototype.copyYFrom = Vec2.prototype.copyY;
+Vec2.prototype.equiv = Vec2.prototype.equals;
+Vec2.prototype.angleTo = Vec2.prototype.angleBetween;
+Vec2.prototype.angleFrom = Vec2.prototype.angleBetween;
 Vec2.prototype.dir = Vec2.prototype.angle;
 Vec2.prototype.direction = Vec2.prototype.angle;
 Vec2.prototype.heading = Vec2.prototype.angle;
 Vec2.prototype.rotateTo = Vec2.prototype.angle;
-Vec2.prototype.angleTo = Vec2.prototype.angleBetween;
-Vec2.prototype.angleFrom = Vec2.prototype.angleBetween;
+Vec2.prototype.rotate = Vec2.prototype.rotateBy;
 Vec2.prototype.length = Vec2.prototype.mag;
 Vec2.prototype.len = Vec2.prototype.mag;
 Vec2.prototype.magnitude = Vec2.prototype.mag;
@@ -266,46 +313,9 @@ Vec2.prototype.lenSq = Vec2.prototype.magSq;
 Vec2.prototype.squareLength = Vec2.prototype.magSq;
 Vec2.prototype.sqLength = Vec2.prototype.magSq;
 Vec2.prototype.sqLen = Vec2.prototype.magSq;
-Vec2.prototype.mul = Vec2.prototype.mult;
-Vec2.prototype.multiply = Vec2.prototype.mult;
-Vec2.prototype.multiplyX = Vec2.prototype.multX;
-Vec2.prototype.multiplyY = Vec2.prototype.multY;
-Vec2.prototype.scale = Vec2.prototype.mult;
-Vec2.prototype.scaleX = Vec2.prototype.multX;
-Vec2.prototype.scaleY = Vec2.prototype.multY;
-Vec2.prototype.divide = Vec2.prototype.div;
-Vec2.prototype.divideX = Vec2.prototype.divX;
-Vec2.prototype.divideY = Vec2.prototype.divY;
-Vec2.prototype.negate = Vec2.prototype.neg;
-Vec2.prototype.negateX = Vec2.prototype.negX;
-Vec2.prototype.negateY = Vec2.prototype.negY;
-Vec2.prototype.invert = Vec2.prototype.neg;
-Vec2.prototype.invertX = Vec2.prototype.negX;
-Vec2.prototype.invertY = Vec2.prototype.negY;
-Vec2.prototype.subtract = Vec2.prototype.sub;
-Vec2.prototype.dotProduct = Vec2.prototype.dot;
-Vec2.prototype.crossProduct = Vec2.prototype.cross;
-Vec2.prototype.distance = Vec2.prototype.dist;
-Vec2.prototype.distanceTo = Vec2.prototype.dist;
-Vec2.prototype.distanceFrom = Vec2.prototype.dist;
-Vec2.prototype.distanceSq = Vec2.prototype.distSq;
-Vec2.prototype.distanceSquared = Vec2.prototype.distSq;
-Vec2.prototype.squareDistance = Vec2.prototype.distSq;
-Vec2.prototype.sqDistance = Vec2.prototype.distSq;
-Vec2.prototype.sqDist = Vec2.prototype.distSq;
 Vec2.prototype.normalize = Vec2.prototype.norm;
-Vec2.prototype.copyFrom = Vec2.prototype.copy;
-Vec2.prototype.copyXFrom = Vec2.prototype.copyX;
-Vec2.prototype.copyYFrom = Vec2.prototype.copyY;
-Vec2.prototype.reverse = Vec2.prototype.flip;
-Vec2.prototype.rev = Vec2.prototype.flip;
-Vec2.prototype.flipXY = Vec2.prototype.flip;
-Vec2.prototype.fix = Vec2.prototype.repair;
 Vec2.prototype.toArray = Vec2.prototype.toArr;
 Vec2.prototype.toObject = Vec2.prototype.toObj;
 Vec2.prototype.toString = Vec2.prototype.toStr;
-Vec2.prototype.fromArray = Vec2.prototype.fromArr;
-Vec2.prototype.fromObject = Vec2.prototype.fromObj;
-Vec2.prototype.fromString = Vec2.prototype.fromStr;
 
 export { Vec2 };
