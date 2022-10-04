@@ -4,8 +4,8 @@ class Vec2 {
     #y;
 
     constructor(x = 0, y = 0) {
-        this.#x = x;
-        this.#y = y;
+        this.#x = Number(x);
+        this.#y = Number(y);
     }
 
     //private setter
@@ -18,8 +18,8 @@ class Vec2 {
     //public getters and setters
     get x() { return this.#x; }
     get y() { return this.#y; }
-    set x(n) { this.#x = n; }
-    set y(n) { this.#y = n; }
+    set x(n) { this.#x = Number(n); }
+    set y(n) { this.#y = Number(n); }
 
     //special x,y manipulators
     flip() {
@@ -35,6 +35,30 @@ class Vec2 {
     }
 
     //math
+    neg() {
+        //reverse sign of x and y
+        return this.mult(-1);
+    }
+    negX() {
+        //reverse sign of x
+        return this.multX(-1);
+    }
+    negY() {
+        //reverse sign of y
+        return this.multY(-1);
+    }
+    zero() {
+        //set both x,y to 0
+        return this.mult(0);
+    }
+    min() {
+        return Math.min(this.#x, this.#y);
+    }
+    max() {
+        return Math.max(this.#x, this.#y);
+    }
+
+    //math with a scalar
     addX(n) {
         //add number n to x
         this.#x += n;
@@ -88,36 +112,8 @@ class Vec2 {
         this.#y /= n;
         return this;
     }
-    neg() {
-        //reverse sign of x and y
-        return this.mult(-1);
-    }
-    negX() {
-        //reverse sign of x
-        this.#x *= -1;
-        return this;
-    }
-    negY() {
-        //reverse sign of y
-        this.#y *= -1;
-        return this;
-    }
-    zero() {
-        //set both x,y to 0
-        return this.mult(0);
-    }
-    min() {
-        return Math.min(this.#x, this.#y);
-    }
-    max() {
-        return Math.max(this.#x, this.#y);
-    }
 
     //math with another Vec2
-    equals(v) {
-        //same as Vec2 v?
-        return this.#x === v.x && this.#y === v.y;
-    }
     add(v) {
         //add Vec2 v
         this.#x += v.x;
@@ -167,7 +163,17 @@ class Vec2 {
         return this;
     }
 
-    //angles
+    //comparison with another Vec2
+    equals(v) {
+        //same as Vec2 v?
+        return this.#x === v.x && this.#y === v.y;
+    }
+    angleBetween(v) {
+        //find angle between this and Vec2 v
+        return Math.acos(this.dot(v)/(this.mag()*v.mag()));
+    }
+
+    //angles in radians
     angle(a) {
         //get angle in radians
         if (a === undefined) return Math.atan2(this.#y, this.#x);
@@ -179,12 +185,6 @@ class Vec2 {
     rotateBy(a) {
         //add to current angle in radians
         return this.angle(this.angle() + a);
-    }
-
-    //angles with another Vec2
-    angleBetween(v) {
-        //find angle between this and Vec2 v
-        return Math.acos(this.dot(v)/(this.mag()*v.mag()));
     }
 
     //magnitude
@@ -222,22 +222,22 @@ class Vec2 {
     toObj() {
         return {x: this.#x, y: this.#y};
     }
-    toArray() {
+    toArr() {
         return [this.#x, this.#y];
     }
-    toString() {
+    toStr() {
         return `${this.#x},${this.#y}`;
     }
 
     //static object utiltiy
-    static fromArray(arr) {
+    static fromArr(arr) {
         return new Vec2(...arr);
     }
     static fromObj(obj) {
         return new Vec2(obj.x, obj.y);
     }
-    static fromString(str) {
-        return new Vec2(...str.split(","));
+    static fromStr(str) {
+        return new Vec2(...str.split(",").map(Number));
     }
 
 }
@@ -298,5 +298,11 @@ Vec2.prototype.reverse = Vec2.prototype.flip;
 Vec2.prototype.rev = Vec2.prototype.flip;
 Vec2.prototype.flipXY = Vec2.prototype.flip;
 Vec2.prototype.fix = Vec2.prototype.repair;
+Vec2.prototype.toArray = Vec2.prototype.toArr;
+Vec2.prototype.toObject = Vec2.prototype.toObj;
+Vec2.prototype.toString = Vec2.prototype.toStr;
+Vec2.prototype.fromArray = Vec2.prototype.fromArr;
+Vec2.prototype.fromObject = Vec2.prototype.fromObj;
+Vec2.prototype.fromString = Vec2.prototype.fromStr;
 
 export { Vec2 };
