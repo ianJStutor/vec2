@@ -73,7 +73,6 @@ class Vec2 {
         //subtract number n from x
         this.#x -= n;
         return this;
-        return this;
     }
     subY(n) {
         //subtract number n from y
@@ -246,11 +245,11 @@ class Vec2 {
 Vec2.prototype.fromArray = Vec2.prototype.fromArr;
 Vec2.prototype.fromObject = Vec2.prototype.fromObj;
 Vec2.prototype.fromString = Vec2.prototype.fromStr;
-Vec2.prototype.reverse = Vec2.prototype.flip;
-Vec2.prototype.rev = Vec2.prototype.flip;
 Vec2.prototype.flipXY = Vec2.prototype.flip;
 Vec2.prototype.fix = Vec2.prototype.repair;
 Vec2.prototype.negate = Vec2.prototype.neg;
+Vec2.prototype.reverse = Vec2.prototype.neg;
+Vec2.prototype.rev = Vec2.prototype.neg;
 Vec2.prototype.invert = Vec2.prototype.neg;
 Vec2.prototype.inverse = Vec2.prototype.neg;
 Vec2.prototype.negateX = Vec2.prototype.negX;
