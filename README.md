@@ -58,6 +58,83 @@ const myVec = new Vec2();
 
 ## Documentation
 
+* [Module Export](Module Export)
+* Static Methods
+
+    * [fromArr](fromArr)
+    * [fromObj](fromObj)
+    * [fromStr](fromStr)
+
+* Public Methods
+
+    * [constructor](constructor)
+    * special <code>x,y</code> manipulators
+
+        * [flip](flip)
+        * [repair](repair)
+
+    * math
+
+        * [neg](neg)
+        * [negX](negX)
+        * [negY](negY)
+        * [zero](zero)
+        * [min](min)
+        * [max](max)
+
+    * math with a scalar
+
+        * [addX](addX)
+        * [addY](addY)
+        * [subX](subX)
+        * [subY](subY)
+        * [mult](mult)
+        * [multX](multX)
+        * [multY](multY)
+        * [div](div)
+        * [divX](divX)
+        * [divY](divY)
+
+    * math with another Vec2
+
+        * [add](add)
+        * [sub](sub)
+        * [dot](dot)
+        * [cross](cross)
+        * [dist](dist)
+        * [distSq](distSq)
+
+    * assignment from another Vec2
+
+        * [copy](copy)
+        * [copyX](copyX)
+        * [copyY](copyY)
+
+    * comparison with another Vec2
+
+        * [equals](equals)
+        * [angleBetween](angleBetween)
+
+    * angles in radians
+
+        * [angle](angle)
+        * [rotateBy](rotateBy)
+
+    * magnitude
+
+        * [mag](mag)
+        * [magSq](magSq)
+        * [limit](limit)
+        * [clamp](clamp)
+        * [norm](norm)
+
+    * object utility
+
+        * [clone](clone)
+        * [toArr](toArr)
+        * [toObj](toObj)
+        * [toStr](toStr)
+
 ### Module Export
 
 ```js
@@ -313,7 +390,6 @@ Vec2.prototype.dist(otherVec2)
 ```
 
 Returns the distance between both Vec2 objects.
-
 
 ##### distSq
 _Alias: <code>distanceSq</code>, <code>disatnceSquared</code>, <code>squareDistance</code>, <code>sqDistance</code>, <code>sqDist</code>_
