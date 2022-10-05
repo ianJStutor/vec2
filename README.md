@@ -4,7 +4,7 @@
 
 ## Description
 
-A 2d vector class. Vectors are useful for video game physics and particle animation. More specifically, vectors are great when used with an HTML canvas element's 2d context.
+A 2d vector class. Vectors are useful for video game physics and particle animation. This Vec2 class could be repurposed for many use cases, but it was created specifically to be used with an HTML canvas element's 2d context.
 
 Built with vanilla JavaScript, my favorite flavor!
 

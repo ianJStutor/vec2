@@ -24,13 +24,16 @@ body {
 }
 
 main {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-main img {
-    width: 200px;
+main > * {
+    width: 250px;
+    height: 250px;
     margin: 10px;
-    vertical-align: middle;
+    box-sizing: border-box;
 }
 
 h1, h2 {
@@ -77,69 +80,19 @@ a {
     color: inherit;
 }
 
-input {
-    width: 100px;
-    font-size: 1.25em;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin: 5px 0 20px;
-}
-
-button, label {
-    font-size: 2em;
-    padding: 10px 15px;
-    margin: 10px 4px 4px;
-    border-radius: 10px;
-    border: 2px solid var(--highlight);
-    background-color: var(--highlight-dark);
-    color: var(--light);
-    cursor: pointer;
-    transition: 0.25s;
-    vertical-align: middle;
-}
-
-button:hover, label:hover {
-    background-color: var(--highlight);
-}
-
-main nav > button {
-    background-color: var(--off-black);
-}
-
-main nav > button:hover {
-    background-color: var(--highlight);
-}
-
-main nav > button img {
-    height: 20px;
-    width: auto;
-}
-
-input[type="radio"] {
-    width: 25px;
-    margin-left: 100px;
-}
-
-input[disabled] {
-    background-color: var(--grey);
+canvas {
+    border: 3px double var(--highlight-light);
 }
 
 output {
     background-color: var(--highlight-light);
-    width: 90%;
-    max-width: 500px;
     min-height: 200px;
     display: block;
-    margin: 20px auto;
     padding: 10px;
     border-radius: 10px;
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
-ul {
-    padding: 0;
-    list-style-type: none;
-}
 
 code {
     font-size: 1.4em;
@@ -148,16 +101,4 @@ code {
 
 *::selection {
     background-color: var(--highlight-light);
-}
-
-.gameDie {
-    display: inline-block;
-    background-color: ivory;
-    color: black;
-    font-size: 4em;
-    padding: 0 0.25em 0.1em;
-    margin: 5px;
-    border: 2px solid brown;
-    border-radius: 5px;
-    box-shadow: 0 0 5px black;
 }
